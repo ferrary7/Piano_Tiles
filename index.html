@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano Tiles</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/pianoFavicon.png">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1 style="color: white; display: flex; justify-content: center; font-size: 50px;">PIANO TILES</h1>
+
+    <!-- Making boxes to take input from the user and storing it in localStorage -->
+    <form action="./game.html">
+        <input class="input" type="text" id="userName" placeholder="Learner's name? 😇">
+        <input class="input" type="text" id="nickName" placeholder="Learner's nick name? 😎">
+    </form>
+
+    <!-- Making the piano -->
+    <ul class="set">
+        <li class="white" id="one">
+        </li>
+        <li style="display: flex; justify-content: center; align-items: flex-end;" class="black" id="two">
+            <h3 style="color: white; font-family: Verdana, Geneva, Tahoma, sans-serif; rotate: -90deg; position: relative; top: -30px;">GITHUB</h3>
+        </li>
+        <li class="white" id="three"></li>
+        <li class="black" id="four"></li>
+        <li style="display: flex; justify-content: center; align-items: flex-end;" class="white" id="five">
+            <!-- onclick playgame -->
+            <h3 style="font-family: Verdana, Geneva, Tahoma, sans-serif;" onclick="save();">PLAY HERE</h3>
+        </li>
+        <li class="black" id="six">
+            <h3 style="color: white; font-family: Verdana, Geneva, Tahoma, sans-serif; rotate: -90deg; position: relative; top: 70px;">LINKEDIN</h3>
+        </li>
+        <li class="white" id="seven"></li>
+        <li class="white" id="eight"></li>
+        <li class="black" id="nine"></li>
+        <li style="display: flex; justify-content: center; align-items: flex-end;" class="white" id="ten">
+            <h3 style="font-family: Verdana, Geneva, Tahoma, sans-serif; rotate: -90deg; position: relative; top: -70px;">INSTRUCTIONS</h3>
+        </li>
+        <li class="black" id="eleven"></li>
+        <li class="white" id="twelve"></li>
+      </ul>
+
+    <div>
+        <p class="para" style="color: white; display: flex; justify-content: center; font-size: 30px;">Play the game, become a professional Pianist 🎹.</p>
+    </div>
+    
+    <script src="./index.js"></script>  
+
+    <!-- storing user's input in the localStorage -->
+    <script>
+        function save(){
+            var uName = document.getElementById("userName").value
+            var nName = document.getElementById("nickName").value
+            if(localStorage.getItem('username') == null){
+                localStorage.setItem('username', '[]');
+            }  
+            if(localStorage.getItem('nickname') == null){
+                localStorage.setItem('nickname', '[]');
+            }  
+            var old_uName = JSON.parse(localStorage.getItem('username'));
+            var old_nName = JSON.parse(localStorage.getItem('nickname'));
+            old_uName.push(uName);
+            old_nName.push(nName);
+            localStorage.setItem('username', JSON.stringify(old_uName))
+            localStorage.setItem('nickname', JSON.stringify(old_nName))
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PIANO TILES</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/pianoFavicon.png">
+
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <img src="./assets/gamebg.jpg">
+
+  <div class="start"> 
+    <button>Play</button>
+  </div> 
+
+  <!-- Creating the 4 lines, where the game is to be played in  -->
+  <div id="game" style="display: none;">
+    <div id="game-container">
+      <div class="line" id="line1"></div>
+      <div class="line" id="line2"></div>
+      <div class="line" id="line3"></div>
+      <div class="line" id="line4"></div>
+    </div>
+
+    <!-- Creating tiles and scores -->
+    <div class="tiles" id="tiles"></div> 
+    <div class="score"><p id="score">0</p></div>
+
+  </div>
+
+  <div class="result_box">
+    <!-- Result dialogue, with user Nick Name -->
+    <div class="text">Hey <span id="complete_text"> </span>😉, you are a proffesional Pianist🎹.</div>
+    <div class="score_text">You've scored 0 points</div>
+
+    <div class="buttons">
+        <button class="restart" id="restart">Replay</button>
+    </div>
+  </div>
+  <audio id="bgMusic" src="./assets/bgMusic.m4a" hidden>
+  <audio id="play" src="./assets/playButton.mp3" hidden>
+  <audio id="out" src="./assets/out.mp3" hidden>
+  <audio id="result" src="./assets/result.mp3" hidden>
+
+    <script src="game.js"></script>
+
+    <!-- Direct the user to index.html to start again -->
+  <script>
+    document.getElementById('restart').onclick=()=>{
+      window.open('index.html','_self')
+      localStorage.removeItem('nickname')
+    }
+    // Parsing user Nick Name in JSON(javascript objects)
+    document.getElementById("complete_text").innerHTML = JSON.parse(localStorage.getItem('nickname'));
+  </script>
+</body>
+</html>
