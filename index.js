@@ -23,7 +23,22 @@ document.getElementById('four').onclick=()=>{
     audioFour.play();
 }
 document.getElementById('five').onclick=()=>{
-    window.open('game.html','_self')
+    var username = document.getElementById("userName").value
+    var nickname = document.getElementById("nickName").value
+            if(username == ""){
+                window.open('index.html','_self')
+                alert("Type in your name, please😅!");
+            }
+            else{
+                window.open('game.html','_self')
+            }
+            if(nickname == ""){
+                window.open('index.html','_self')
+                alert("Type in your nick name, please😅!");
+            }
+            else{
+                window.open('game.html','_self')
+            } 
 }
 document.getElementById('six').onclick=()=>{
     audioFive.play();
